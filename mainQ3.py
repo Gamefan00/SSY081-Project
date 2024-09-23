@@ -1,2 +1,2 @@
 if True:
-    Print("Hello there")
+    Print("Hello World!")
