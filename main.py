@@ -22,13 +22,14 @@ time = np.arange(len(ap_trains[0])) / 10000
 
 plt.figure(figsize=(10, 4))
 plt.plot(time, ap_trains[0], linewidth=0.5)
+# plt.plot(time[100000:105000], ap_trains[0,100000:105000], linewidth=0.5)
 
 # Label the axes
-plt.xlabel('Time (seconds)')
-plt.ylabel('Amplitude (A.U.)')
+plt.xlabel('Time [s]')
+plt.ylabel('[A.U.]')
 
 # Set title for the plot
-plt.title('Signal over Time')
+plt.title('Action potential 1')
 
 # Show grid
 plt.grid(True)
