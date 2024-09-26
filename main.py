@@ -1,25 +1,35 @@
 
 import numpy as np
+import matplotlib.pyplot as plt
 
-# Hello there
-print("Hello There!")
-
+# Construct signal
 action_pot = np.load('./data_files/action_potentials.npy')
 
 datafr = np.load('./data_files/firing_samples.npy', allow_pickle=True)[0]
 
-bin_fire  = np.zeros((8, 200000), dtype=float)
+UNIT_COUNT = 8
 
+ap_trains  = np.zeros((UNIT_COUNT, 200000), dtype=float)
 
-print(action_pot[0].shape)
-print(bin_fire[1, 1:1+100].shape)
-
-#exit()
 for t in range(datafr.size):
     for i in (datafr[t]):
         i = i[0]
-        bin_fire[t, i:i+100] += np.array(action_pot[t])
+        ap_trains[t, i:i+100] += np.array(action_pot[t])
 
-print(bin_fire[7, 1200:1500])
-print(datafr.shape)
-print(action_pot.shape)
+
+# Plot
+time = np.arange(UNIT_COUNT) / 10000
+
+fig,axs = plt.subplots(4,2,figsize(12,10))
+
+for i, signal in enumerate(signals):
+    row = i//2
+    col = i % 2
+    axs[row, col].plot(time, signal, linewidth=0.5)
+    axs[row, col].set_title(f'Signal {i+1}')
+    axs[row, col].set_xlabel('Time (seconds)')
+    axs[row, col].set_ylabel('Amplitude (A.U.)')
+    axs[row, col].grid(True)
+
+plt.tight_layout()
+plt.show()
