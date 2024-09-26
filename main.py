@@ -20,16 +20,18 @@ for t in range(datafr.size):
 # Plot
 time = np.arange(len(ap_trains[0])) / 10000
 
-fig,axs = plt.subplots(4,2,figsize=(12,10))
+plt.figure(figsize=(10, 4))
+plt.plot(time, ap_trains[0], linewidth=0.5)
 
-for i, signal in enumerate(ap_trains):
-    row = i//2
-    col = i % 2
-    axs[row, col].plot(time, signal, linewidth=0.5)
-    axs[row, col].set_title(f'Signal {i+1}')
-    axs[row, col].set_xlabel('Time (seconds)')
-    axs[row, col].set_ylabel('Amplitude (A.U.)')
-    axs[row, col].grid(True)
+# Label the axes
+plt.xlabel('Time (seconds)')
+plt.ylabel('Amplitude (A.U.)')
 
-plt.tight_layout()
+# Set title for the plot
+plt.title('Signal over Time')
+
+# Show grid
+plt.grid(True)
+
+# Display the plot
 plt.show()
