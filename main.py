@@ -18,11 +18,11 @@ for t in range(datafr.size):
 
 
 # Plot
-time = np.arange(UNIT_COUNT) / 10000
+time = np.arange(len(ap_trains[0])) / 10000
 
-fig,axs = plt.subplots(4,2,figsize(12,10))
+fig,axs = plt.subplots(4,2,figsize=(12,10))
 
-for i, signal in enumerate(signals):
+for i, signal in enumerate(ap_trains):
     row = i//2
     col = i % 2
     axs[row, col].plot(time, signal, linewidth=0.5)
