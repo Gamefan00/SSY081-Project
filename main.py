@@ -9,6 +9,7 @@ datafr = np.load('./data_files/firing_samples.npy', allow_pickle=True)[0]
 
 UNIT_COUNT = 8
 SAMPLING_FRQ = 10000
+SAMPLE_COUNT = 200000
 
 
 def plot(time, *signals):
@@ -29,9 +30,9 @@ def plot(time, *signals):
 
 
 # Question 1
-if False:
+if True:
     # create 8x200000 matrix where each row corresponds to a unit and each column to a time step
-    ap_trains  = np.zeros((UNIT_COUNT, 200000), dtype=float)
+    ap_trains  = np.zeros((UNIT_COUNT, SAMPLE_COUNT), dtype=float)
 
     # fill the matrix with the action potentials
     for t in range(datafr.size):
@@ -55,8 +56,8 @@ if True:
     hanning_window = np.hanning(1*SAMPLING_FRQ)
 
     # Create binary firing train
-    q2_binary = np.zeros((UNIT_COUNT, 200000), dtype=int)
-    q2_filtered = np.zeros((UNIT_COUNT, 200000), dtype=float)
+    q2_binary = np.zeros((UNIT_COUNT, SAMPLE_COUNT), dtype=int)
+    q2_filtered = np.zeros((UNIT_COUNT, SAMPLE_COUNT), dtype=float)
     for t in range(datafr.size):
         for i in (datafr[t]):
             i = i[0]
