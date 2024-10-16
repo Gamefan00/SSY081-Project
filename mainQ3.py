@@ -21,6 +21,7 @@ time_vec = np.arange(len(signal)) / SAMPLING_FRQ
 plt.figure(figsize=(12, 4))
 plt.plot(time_vec, signal_interf)
 plt.plot(time_vec, signal)
+plt.ylabel('[A.U.]')
 plt.xlabel('Time [s]')
 plt.show()
 
