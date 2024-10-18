@@ -35,12 +35,8 @@ signal_interf_dft = np.fft.fft(signal_interf)
 amplitude = np.abs(signal_dft)
 amplitude_interf = np.abs(signal_interf_dft)
 
-# phase = np.arctan2(signal_dft.imag, signal_dft.real)
-# phase_interf = np.arctan2(signal_interf_dft.imag, signal_interf_dft.real)
-
 k = np.arange(0, N0, step=1)
 f_axis = k / T0            # get the axis in Hz
-w_axis = 2 * pi * k / T0   # get the axis in rad/s
 
 # plot absolute values of the DFT
 plt.figure(figsize=(12, 4))
